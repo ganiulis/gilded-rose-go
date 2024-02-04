@@ -1,5 +1,8 @@
 dcr=docker run -v .:/usr/src/app gilded-rose
 
+build:
+	docker build -t gilded-rose .
+
 go:
 	$(dcr) go
 

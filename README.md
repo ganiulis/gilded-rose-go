@@ -3,7 +3,7 @@
 - Build:
 
 ```shell
-docker build -t gilded-rose .
+make build
 ```
 
 - Run tests:
