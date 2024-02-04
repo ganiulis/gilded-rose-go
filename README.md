@@ -1,21 +1,31 @@
 # GO Starter
 
-- Run :
+- Build:
 
 ```shell
-go run texttest_fixture.go [<number-of-days>; default: 2]
+docker build -t gilded-rose .
 ```
 
-- Run tests :
+- Run tests:
 
 ```shell
-go test ./...
+make test
 ```
 
-- Run tests and coverage :
+- Run go inside container
 
 ```shell
-go test ./... -coverprofile=coverage.out
+make go ...
+```
 
-go tool cover -html=coverage.out
+- Run app:
+
+```shell
+make run [<number-of-days>; default: 2]
+```
+
+- Run tests with coverage output:
+
+```shell
+make coverage
 ```
