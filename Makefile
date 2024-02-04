@@ -7,7 +7,7 @@ go:
 	$(dcr) go
 
 fixture:
-	$(dcr) go run texttest_fixture.go
+	$(dcr) go run texttest_fixture.go $(days)
 
 test:
 	$(dcr) go test -v ./gildedrose/...
