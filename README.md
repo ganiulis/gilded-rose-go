@@ -12,16 +12,16 @@ make build
 make test
 ```
 
-- Run go inside container
+- Run a command inside container
 
 ```shell
-make go ...
+make cmd args="..."
 ```
 
 - Run app:
 
 ```shell
-make run [<number-of-days>; default: 2]
+make run [days=...; default: 2]
 ```
 
 - Run tests with coverage output:
