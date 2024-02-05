@@ -1,14 +1,13 @@
-package main
+package fixture
 
 import (
 	"fmt"
+	"ganiulis/gildedrose"
 	"os"
 	"strconv"
-
-	"github.com/emilybache/gildedrose-refactoring-kata/gildedrose"
 )
 
-func main() {
+func RunFixture() {
 	fmt.Println("OMGHAI!")
 
 	var items = []*gildedrose.Item{

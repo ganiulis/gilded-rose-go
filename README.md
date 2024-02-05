@@ -1,6 +1,6 @@
 # GO Starter
 
-- Build:
+- Build image:
 
 ```shell
 make build
@@ -12,19 +12,19 @@ make build
 make test
 ```
 
-- Run a command inside container
+- Run a command inside the container
 
 ```shell
-make cmd args="..."
+make cmd args="go ..."
 ```
 
-- Run app:
+- Run the app with fixtures:
 
 ```shell
-make run [days=...; default: 2]
+make fixtures [days=...; default: 2]
 ```
 
-- Run tests with coverage output:
+- Run tests with coverage output in HTML:
 
 ```shell
 make coverage

@@ -1,3 +1,3 @@
-module github.com/emilybache/gildedrose-refactoring-kata
+module ganiulis
 
-go 1.18
+go 1.21.5

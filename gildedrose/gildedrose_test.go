@@ -1,12 +1,11 @@
 package gildedrose_test
 
 import (
+	"ganiulis/gildedrose"
 	"testing"
-
-	"github.com/emilybache/gildedrose-refactoring-kata/gildedrose"
 )
 
-func Test_Foo(t *testing.T) {
+func TestUpdateQuality(t *testing.T) {
 	var items = []*gildedrose.Item{
 		{"fixme", 0, 0},
 	}

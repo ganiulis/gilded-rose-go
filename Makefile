@@ -6,12 +6,12 @@ build:
 cmd:
 	$(dcr) $(args)
 
-fixture:
-	$(dcr) go run texttest_fixture.go $(days)
+fixtures:
+	$(dcr) go run main.go $(days)
 
 test:
-	$(dcr) go test -v ./gildedrose/...
+	$(dcr) go test -v ./...
 
 coverage:
-	$(dcr) go test -v ./gildedrose/... -coverprofile=coverage.out && go tool cover -html=coverage.out -o coverage.html
+	$(dcr) go test -v ./... -coverprofile=coverage.out && go tool cover -html=coverage.out -o coverage.html
 
