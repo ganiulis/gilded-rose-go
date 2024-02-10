@@ -7,62 +7,67 @@ type Item struct {
 
 func UpdateQuality(items []*Item) {
 	for i := 0; i < len(items); i++ {
-		updateItem(items[i])
+		switch items[i].Name {
+		case "Backstage passes to a TAFKAL80ETC concert":
+			updateBackstagePasses(items[i])
+		case "Sulfuras, Hand of Ragnaros":
+			updateSulfuras(items[i])
+		case "Aged Brie":
+			updateAgedBrie(items[i])
+		default:
+			updateGenericItem(items[i])
+		}
 	}
 }
 
-func updateItem(item *Item) {
-	if item.Name == "Backstage passes to a TAFKAL80ETC concert" {
-		if item.Quality < 50 {
-			item.Quality++
-		}
+func updateBackstagePasses(item *Item) {
+	item.SellIn--
 
-		if item.Quality < 50 {
-			if item.SellIn < 11 {
-				item.Quality++
-			}
-
-			if item.SellIn < 6 {
-				item.Quality++
-			}
-		}
-
-		item.SellIn--
-
-		if item.SellIn < 0 {
-			item.Quality = 0
-		}
-
-		return
-	}
-
-	if item.Name == "Sulfuras, Hand of Ragnaros" {
-		return
-	}
-
-	if item.Name == "Aged Brie" {
-		item.SellIn--
+	if item.Quality < 50 {
 		item.Quality++
+	}
 
-		if item.SellIn < 0 {
+	if item.Quality < 50 {
+		if item.SellIn < 10 {
 			item.Quality++
 		}
 
-		if item.Quality > 50 {
-			item.Quality = 50
+		if item.SellIn < 5 {
+			item.Quality++
 		}
-
-		return
 	}
 
+	if item.SellIn < 0 {
+		item.Quality = 0
+	}
+}
+
+func updateSulfuras(item *Item) {
+
+}
+
+func updateAgedBrie(item *Item) {
+	item.SellIn--
+
+	item.Quality++
+
+	if item.SellIn < 0 {
+		item.Quality++
+	}
+
+	if item.Quality > 50 {
+		item.Quality = 50
+	}
+}
+
+func updateGenericItem(item *Item) {
 	item.SellIn--
 
 	if item.Quality > 0 {
 		item.Quality--
 	}
 
-	if item.Quality > 0 &&
-		item.SellIn < 0 {
+	if item.Quality > 0 && item.SellIn < 0 {
 		item.Quality--
 	}
 }
