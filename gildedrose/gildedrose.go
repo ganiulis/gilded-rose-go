@@ -15,7 +15,7 @@ func UpdateQuality(items []*Item) {
 		case "Aged Brie":
 			updateAgedBrie(items[i])
 		default:
-			updateGenericItem(items[i])
+			update(items[i])
 		}
 	}
 }
@@ -60,7 +60,7 @@ func updateAgedBrie(item *Item) {
 	}
 }
 
-func updateGenericItem(item *Item) {
+func update(item *Item) {
 	item.SellIn--
 
 	if item.Quality > 0 {
