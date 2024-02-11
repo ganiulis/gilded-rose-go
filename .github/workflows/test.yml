@@ -8,7 +8,7 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
-      - name: Display Go version
+      - name: Build
         run: gilded-rose go test -v ./...
       - name: Run tests
         run: docker run -v .:/usr/src/app gilded-rose go test -v ./...
