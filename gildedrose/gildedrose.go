@@ -6,19 +6,21 @@ type Item struct {
 }
 
 func UpdateQuality(items []*Item) {
-	lastHandler := &GenericHandler{}
+	handlers := []ItemHandler{
+		&BackstagePassesHandler{},
+		&SulfurasHandler{},
+		&AgedBrieHandler{},
+		&GenericHandler{},
+	}
 
-	thirdHandler := &AgedBrieHandler{}
-	thirdHandler.setNext(lastHandler)
+	for i := 0; i < len(handlers)-1; i++ {
+		nextHandler := handlers[i+1]
 
-	secondHandler := &SulfurasHandler{}
-	secondHandler.setNext(thirdHandler)
-
-	firstHandler := &BackstagePassesHandler{}
-	firstHandler.setNext(secondHandler)
+		handlers[i].setNext(nextHandler)
+	}
 
 	for i := 0; i < len(items); i++ {
-		firstHandler.update(items[i])
+		handlers[0].update(items[i])
 	}
 }
 
@@ -73,7 +75,6 @@ func (u *AgedBrieHandler) update(item *Item) {
 	}
 
 	item.SellIn--
-
 	item.Quality++
 
 	if item.SellIn < 0 {
@@ -102,22 +103,24 @@ func (u *BackstagePassesHandler) update(item *Item) {
 
 	item.SellIn--
 
-	if item.Quality < 50 {
+	if item.SellIn < 0 {
+		item.Quality = 0
+
+		return
+	}
+
+	item.Quality++
+
+	if item.SellIn < 10 {
 		item.Quality++
 	}
 
-	if item.Quality < 50 {
-		if item.SellIn < 10 {
-			item.Quality++
-		}
-
-		if item.SellIn < 5 {
-			item.Quality++
-		}
+	if item.SellIn < 5 {
+		item.Quality++
 	}
 
-	if item.SellIn < 0 {
-		item.Quality = 0
+	if item.Quality > 50 {
+		item.Quality = 50
 	}
 }
 
