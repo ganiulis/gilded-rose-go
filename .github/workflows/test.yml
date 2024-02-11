@@ -9,7 +9,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Build
-        run: gilded-rose go test -v ./...
+        run: docker build -t gilded-rose .
       - name: Run tests
         run: docker run -v .:/usr/src/app gilded-rose go test -v ./...
 
