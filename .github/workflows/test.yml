@@ -1,6 +1,6 @@
-name: Go
+name: Tests
 
-on: [push]
+on: push
 
 jobs:
   build:
