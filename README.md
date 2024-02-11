@@ -1,5 +1,7 @@
 # GO Starter
 
+![](https://github.com/ganiulis/gilded-rose-go/actions/workflows/test.yml/badge.svg)
+
 - Build image:
 
 ```shell
