@@ -37,7 +37,7 @@ func (u *GenericHandler) update(item *Item) {
 	item.SellIn--
 
 	if item.Quality > 0 {
-		// item.Quality--
+		item.Quality--
 	}
 
 	if item.Quality > 0 && item.SellIn < 0 {
