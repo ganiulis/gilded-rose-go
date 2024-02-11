@@ -1,6 +1,6 @@
 # GO Starter
 
-![Tests](https://github.com/github/docs/actions/workflows/main.yml/badge.svg)
+![](https://github.com/ganiulis/gilded-rose-go/actions/workflows/test.yml/badge.svg)
 
 - Build image:
 
