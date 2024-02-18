@@ -1,16 +1,18 @@
-package fixture
+package mock
 
 import (
 	"fmt"
-	"ganiulis/gildedrose"
 	"os"
 	"strconv"
+
+	"github.com/ganiulis/gilded-rose-go/pkg/inventory"
+	"github.com/ganiulis/gilded-rose-go/pkg/model"
 )
 
 func RunFixture() {
 	fmt.Println("OMGHAI!")
 
-	var items = []*gildedrose.Item{
+	var items = []*model.Item{
 		{"+5 Dexterity Vest", 10, 20},
 		{"Aged Brie", 2, 0},
 		{"Elixir of the Mongoose", 5, 7},
@@ -40,6 +42,6 @@ func RunFixture() {
 			fmt.Println(items[i])
 		}
 		fmt.Println("")
-		gildedrose.UpdateQuality(items)
+		inventory.UpdateQuality(items)
 	}
 }

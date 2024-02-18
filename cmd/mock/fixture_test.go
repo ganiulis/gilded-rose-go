@@ -1,13 +1,14 @@
-package fixture_test
+package mock_test
 
 import (
 	"bytes"
-	"ganiulis/fixture"
 	"io"
 	"log"
 	"os"
 	"sync"
 	"testing"
+
+	"github.com/ganiulis/gilded-rose-go/cmd/mock"
 )
 
 func TestRunFixture(t *testing.T) {
@@ -15,10 +16,10 @@ func TestRunFixture(t *testing.T) {
 	os.Args[1] = days
 
 	actual := captureOutput(func() {
-		fixture.RunFixture()
+		mock.RunFixture()
 	})
 
-	testdata := "../testdata/fixture.txt"
+	testdata := "testdata/fixture.txt"
 	expected, _ := os.ReadFile(testdata)
 
 	if actual != string(expected) {
