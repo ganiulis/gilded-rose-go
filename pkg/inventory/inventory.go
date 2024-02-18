@@ -5,7 +5,7 @@ import (
 	"github.com/ganiulis/gilded-rose-go/pkg/model"
 )
 
-func UpdateQuality(items []*model.Item) {
+func Update(items []*model.Item) {
 	handlers := []handler.ItemHandler{
 		&handler.BackstagePassesHandler{},
 		&handler.SulfurasHandler{},

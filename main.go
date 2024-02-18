@@ -1,7 +1,7 @@
-package gildedrose
+package main
 
-import "github.com/ganiulis/gilded-rose-go/cmd/mock"
+import "github.com/ganiulis/gilded-rose-go/cmd/fixture"
 
 func main() {
-	mock.RunFixture()
+	fixture.Run()
 }

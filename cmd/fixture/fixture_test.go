@@ -1,4 +1,4 @@
-package mock_test
+package fixture
 
 import (
 	"bytes"
@@ -7,16 +7,14 @@ import (
 	"os"
 	"sync"
 	"testing"
-
-	"github.com/ganiulis/gilded-rose-go/cmd/mock"
 )
 
-func TestRunFixture(t *testing.T) {
+func TestRun(t *testing.T) {
 	days := "31"
 	os.Args[1] = days
 
 	actual := captureOutput(func() {
-		mock.RunFixture()
+		Run()
 	})
 
 	testdata := "testdata/fixture.txt"

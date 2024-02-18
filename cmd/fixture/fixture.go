@@ -1,4 +1,4 @@
-package mock
+package fixture
 
 import (
 	"fmt"
@@ -9,7 +9,7 @@ import (
 	"github.com/ganiulis/gilded-rose-go/pkg/model"
 )
 
-func RunFixture() {
+func Run() {
 	fmt.Println("OMGHAI!")
 
 	var items = []*model.Item{
@@ -42,6 +42,6 @@ func RunFixture() {
 			fmt.Println(items[i])
 		}
 		fmt.Println("")
-		inventory.UpdateQuality(items)
+		inventory.Update(items)
 	}
 }
